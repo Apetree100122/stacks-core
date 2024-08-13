@@ -1,9 +1,7 @@
 [package]
 name = "clarity"
 version = "0.0.1"
-authors = [ "Jude Nelson <jude@stacks.org>",
-            "Aaron Blankstein <aaron@blockstack.com>",
-            "Ludo Galabru <ludovic@blockstack.com>" ]
+authors = [ "Jude Nelson <jude@stacks.org>","Aaron Blankstein <aaron@blockstack.com>","Ludo Galabru <ludovic@blockstack.com>","Alexander Petree<apetree1001@email.phoenix.edu>"]
 license = "GPLv3"
 homepage = "https://github.com/blockstack/stacks-blockchain"
 repository = "https://github.com/blockstack/stacks-blockchain"
@@ -12,11 +10,9 @@ keywords = [ "stacks", "stx", "bitcoin", "crypto", "blockstack", "decentralized"
 readme = "README.md"
 edition = "2021"
 resolver = "2"
-
 [lib]
 name = "clarity"
 path = "./src/libclarity.rs"
-
 [dependencies]
 rand = { workspace = true }
 rand_chacha = { workspace = true }
@@ -32,26 +28,21 @@ rstest = "0.17.0"
 rstest_reuse = "0.5.0"
 hashbrown = { workspace = true }
 mutants = "0.0.3"
-
 [dependencies.serde_json]
 version = "1.0"
 features = ["arbitrary_precision", "unbounded_depth"]
-
 [dependencies.rusqlite]
 version = "=0.24.2"
 optional = true
 features = ["blob", "serde_json", "i128_blob", "bundled", "trace"]
-
 [dependencies.time]
 version = "0.2.23"
 features = ["std"]
-
 [dev-dependencies]
 assert-json-diff = "1.0.0"
 # a nightly rustc regression (35dbef235 2021-03-02) prevents criterion from compiling
 #  but it isn't necessary for tests: only benchmarks. therefore, commenting out for now.
 # criterion = "0.3"
-
 [features]
 default = ["canonical"]
 canonical = ["rusqlite", "stacks_common/canonical"]
